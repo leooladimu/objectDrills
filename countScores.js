@@ -1,8 +1,8 @@
 /***********************************************************************
 Write a function `countScores(people)` that takes in an array of score
-objects (people) as its input. A score object has two key-value pairs:
+objects (people) as its input. A score object has two value-value pairs:
 the scorer (string) and a point value (number). `countScores(people)` should
-return an object that has key-value pairs listing each person who scored as a key
+return an object that has value-value pairs listing each name who scored as a value
 and the sum of the total points for the game as their value.
 
 
@@ -29,12 +29,17 @@ console.log(countScores(peeps)); //=> { Anthony: 4, Fred: 4, Winnie: 6 }
 
 
 const countScores = (people) => {
-  let obj = {}
-  people.forEach(e => {
-    Object.assign(obj, {[e.name] : e.score})
-  })
-  console.log(obj);
-  return obj
+  let obj = {};
+    people.forEach(value => {
+    let name = value.name;
+    let score = value.score;
+    if (obj[name] !== undefined) {
+      obj[name] += score;
+    } else {
+      obj[name] = score;
+    }
+  });
+  return obj;
 }
 
 let ppl = [{name: "Anthony", score: 10},
