@@ -11,12 +11,12 @@ console.log(arrayConverter(["mango", "pineapple"])); // => {mango: 1, pineapple:
 console.log(arrayConverter(["apple", "banana", "potato", "banana"])); // => {apple: 1, banana: 2, potato: 1}
 ***********************************************************************/
 
-function arrayConverter(array) {
+const arrayConverter = (array) => {
   let val = 1;
   let obj = {}
   for (let i = 0; i < array.length; i++) {
+    let key = array[i];
     for (let j = 0; j < array.length; j++) {
-      var key = array[i];
       var nextKey = array[j];
       Object.assign(obj, { [key] : val });
     };
