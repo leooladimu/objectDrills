@@ -9,9 +9,10 @@ const obj = {
 }
 
 const includedInObject = (obj, key) => {
-  let objArr = Object.keys(obj);
-  if (objArr.includes(key)) {
-    return true;
+  for (let kee in obj) {
+    if (kee === key) {
+      return true;
+    }
   }
   return false;
 }
@@ -19,3 +20,10 @@ const includedInObject = (obj, key) => {
 console.log(includedInObject(obj, 'first'));      // true
 console.log(includedInObject(obj, 'second'));     // true
 console.log(includedInObject(obj, 'fourth'));     // false
+
+// 
+// let objArr = Object.keys(obj);
+// if (objArr.includes(key)) {
+//   return true;
+// }
+// return false;
